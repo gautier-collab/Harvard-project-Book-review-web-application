@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+  Results for '{{keywords}}'
+{% endblock %}
+
+{% block buttons %}
+  <a href="{{url_for("home")}}">
+    <button style="background-color: lightblue">Log out</button>
+  </a>
+{% endblock %}
+
+{% block body %}
+  <a href="{{url_for("search")}}">
+    <button style="display: block; margin-left: auto; margin-right: auto;">
+      New search
+    </button>
+  </a>
+  </br>
+  </br>
+  <ul>
+    {% for book in results %}
+      <li>
+        <a href="{{ url_for('book', isbn = book.isbn) }}"> 
+          <i>{{ book.title }}</i> ({{ book.author }}, {{ book.year }})
+        </a>
+      </li>
+      </br>
+    {% endfor %}
+  </ul>
+{% endblock %}
+

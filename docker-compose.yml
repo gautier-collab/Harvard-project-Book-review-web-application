@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    flask:
+        build: ./app/flask
+        restart: always
+        environment:
+            - FLASK_APP=application.py
+            - DATABASE_URL=postgres://xdsltfznyrmffg:3ac7542170c59e36bbcf57e5619b90f57c8d538be0ce3f892fc45db0eb403ac0@ec2-174-129-253-125.compute-1.amazonaws.com:5432/d8b2l04n622ohs
+            - DEBUG=1
+        expose:
+            - 8080
+    nginx:
+        build: ./app/nginx
+        restart: always
+        ports:
+            - "80:80" 

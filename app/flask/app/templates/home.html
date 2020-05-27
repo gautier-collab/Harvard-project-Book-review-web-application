@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Welcome to BookRater
+{% endblock %}
+
+{% block error %}{{message}}{% endblock %}
+
+{% block body %}
+    <div>
+        <a href="{{url_for("register")}}"><button style="margin-left: 42%">
+                Register
+            </button></a>
+        &nbsp;&nbsp;
+        <a href="{{url_for("login")}}">
+            <button>
+                Login
+            </button>
+        </a>
+    </div>
+{% endblock %}

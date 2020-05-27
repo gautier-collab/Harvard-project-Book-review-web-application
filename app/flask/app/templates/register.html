@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Create an account
+{% endblock %}
+
+{% block buttons %}
+    <a href="{{url_for("home")}}">
+        <button style="background-color: lightblue">Back</button>
+    </a>
+{% endblock %}
+
+{% block error %}
+    {{reg_error}}
+{% endblock %}
+
+{% block body %}
+    <form method="post">
+        <input type="text" name="username" Placeholder="username" maxlength="30">
+        &nbsp;
+        <input type="password" name="password" Placeholder="password" maxlength="30">
+        &nbsp;
+        <button>Register</button>
+    </form>
+{% endblock %}

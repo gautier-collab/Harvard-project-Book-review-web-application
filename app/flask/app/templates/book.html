@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+  <i>{{ book.title }}</i> by {{ book.author }}
+{% endblock %}
+
+{% block buttons %}
+  <a href="{{url_for("home")}}">
+    <button style="background-color: lightblue">Log out</button>
+  </a>
+{% endblock %}
+
+{% block error %}{{message}}{% endblock %}
+
+{% block body %}
+  <a href="{{url_for("search")}}">
+    <button style="display: block; margin-left: auto; margin-right: auto;">
+      Find another book
+    </button>
+  </a>
+  </br>
+  </br>
+  <ul>
+    <li>
+      Title: <i>{{ book.title }}</i>
+    </li>
+    </br>
+    <li>
+      Author: {{ book.author }}
+    </li>
+    </br>
+    <li>
+      Year: {{ book.year }}
+    </li>
+    </br>
+    <li>
+      ISBN: {{ book.isbn }}
+    </li>
+  </ul> 
+  </br>
+  </br>
+  </br>
+
+  <h4>
+    Reviews for <i>{{book.title}}</i> :
+  </h4>
+  </br>
+  {% if ratingNum == 0 %}
+    <p>This book hasn't been on rated on Goodreads yet.</p>
+  {% else %}
+    Average rating on Goodreads: <font color="red">{{ ratingAvg }}</font> out of 5 (from {{ ratingNum }} ratings)
+  {% endif %}
+  </br>
+  </br>
+  {% if noReview == "yes" %}
+    <p>There is no review left by BookRater users yet.</p>
+  {% else %}
+  <table border="0" style="padding: 4px; text-align: left;">
+    <tr>
+      <th style="padding: 4px;">Username</th>
+      <th style="padding: 4px; text-align: center;">Rating</th>
+      <th style="padding: 4px;">Comment</th>
+    </tr>
+    {% for review in reviews %}
+      <tr>
+        <td style="padding: 4px; text-align: center">{{review.username}}</td>
+        <td style="padding: 4px; text-align: center; width: 100px;">{{review.rating}}/5</td>
+        <td style="padding: 4px;">{{review.comment}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+  </br>
+  </br>
+  </br>
+
+  {% if selfRated == "no" %}
+  <form method="post">
+    <h4> 
+      Did you read this book? We'd like to know your opinion.
+    </h4>
+    </br>
+    <div>
+      <select name="rating">
+        <option value="5">5</option>
+        <option value="4">4</option>
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+      </select>
+      out of 5.
+    </div>
+    </br>
+    Feel free to add a comment about <i>{{book.title}}</i>.
+    </br>
+    <textarea name="comment" rows="4" cols="50" maxlength="300" style="font-size: 16px;"></textarea>
+    </br>
+    </br>
+    <button>
+      Submit review
+    </button>
+  </form>
+  {% else %}
+    <p>You already wrote a review for this book.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+You are successfully registered.
+{% endblock %}
+
+{% block body %}
+  <div>
+    You can now log into your account:
+  </div>
+  <a href="{{url_for("login")}}">
+    <button>Sign in</button>
+  </a>
+{% endblock %}

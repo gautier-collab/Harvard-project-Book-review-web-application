@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+  Search a book
+{% endblock %}
+
+{% block buttons %}
+    <a href="{{url_for("home")}}">
+        <button style="background-color: lightblue">Log out</button>
+    </a>
+{% endblock %}
+
+{% block error %}{{error}}{% endblock %}
+
+{% block body %}
+  <!-- Beginning of code that updates URL -->
+    {% if temp == 1 %}
+      <script type="text/javascript">
+        window.location.href = "{{url_for("search")}}"
+      </script>
+    {% endif %}
+  <!-- End of code that updates URL -->
+  {{message}}
+  Please enter either the title, the author or the ISBN of a book you would like to find reviews about.
+  </br>
+  </br>
+    <form method="post">
+        <input type="text" name="keywords" maxlength="40">
+        <button>
+          Search
+        </button>
+    </form>
+{% endblock %}
