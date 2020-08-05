@@ -2,7 +2,7 @@
 
 Screencast presenting my website (before it was containerized): https://www.youtube.com/watch?v=Ll9wzNjucPI
 
-This is a book review web application built as my Project 1 of the Harvard course CS50's Web Programming with Python and JavaScript. It allows signed in users to search books and post reviews. You can also retrieve book data using the website's JSON API. 
+This is a book review web application built as my Project 1 of the Harvard course CS50's Web Programming with Python and JavaScript (2018 version). It allows signed in users to search books and post reviews. You can also retrieve book data using the website's JSON API. 
 
 The Flask server communicates with a PostgreSQL database hosted on the cloud (on a PAAS named Heroku). 5,000 books from a CSV table have been added to that DB by running import.py.
 
