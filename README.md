@@ -1,6 +1,6 @@
 # -------- Harvard-project-Book-review-web-application --------
 
-Screencast presenting my website (before it was containerized): https://www.youtube.com/watch?v=Ll9wzNjucPI
+Screencast presenting my website (before it was containerized): https://youtu.be/bqxoiGRDyHQ
 
 This is a book review web application built as my Project 1 of the Harvard course CS50's Web Programming with Python and JavaScript (2018 version). It allows signed in users to search books and post reviews. You can also retrieve book data using the website's JSON API. 
 
